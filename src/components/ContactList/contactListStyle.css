@@ -1,0 +1,60 @@
+.sidebar {
+    width: 30%;
+    border-right: 1px solid var(--color-divider);
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sidebar input[type="text"] {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:  1px solid var(--color-divider);
+    padding: 10px;
+    color: var(--color-placeholder);
+}
+
+.sidebar .sidebar-header {
+    padding: 10px;
+    border-bottom: 1px solid var(--color-divider);
+    margin-bottom: 10px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    padding : 0 10px;
+    max-width: calc( 100% - 50px);
+    width: 100%;
+}
+.contact .first-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact-row.active {
+    background-color: var(--color-active);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.preview {
+    color: var(--color-muted);
+    font-size: 0.9em;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.contact-row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid var(--color-divider);
+    cursor: pointer;
+}

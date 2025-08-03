@@ -1,0 +1,20 @@
+[
+  {
+    "phone": "+58941234567",
+    "first_name": "John",
+    "last_name": "Doe",
+    "city": "Tel Aviv"
+  },
+  {
+    "phone": "+58949876543",
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "city": "Jerusalem"
+  },
+  {
+    "phone": "+58945556666",
+    "first_name": "Michael",
+    "last_name": "Levi",
+    "city": "Haifa"
+  }
+]

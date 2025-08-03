@@ -1,0 +1,16 @@
+.tags-wrapper {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.tags-wrapper span {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid var(--color-divider);
+    border-radius: 15px;
+}
+
+.tags-wrapper span:hover {
+    background: var(--color-active);
+}

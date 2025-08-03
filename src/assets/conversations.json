@@ -1,0 +1,137 @@
+[
+  {
+    "phone": "+58941234567",
+    "messages": [
+      {
+        "timestamp": "2025-07-29T10:00:00Z",
+        "sender": "contact",
+        "text": "Hi, I'd like to ask about your services."
+      },
+      {
+        "timestamp": "2025-07-29T10:01:00Z",
+        "sender": "me",
+        "text": "Sure, I'm happy to help! What exactly are you looking for?"
+      },
+      {
+        "timestamp": "2025-07-29T10:02:10Z",
+        "sender": "contact",
+        "text": "Mainly pricing and availability."
+      },
+      {
+        "timestamp": "2025-07-29T10:03:05Z",
+        "sender": "me",
+        "text": "We offer flexible plans. Are you looking for a monthly or yearly option?"
+      },
+      {
+        "timestamp": "2025-07-29T10:04:20Z",
+        "sender": "contact",
+        "text": "Probably monthly to start with."
+      },
+      {
+        "timestamp": "2025-07-29T10:05:00Z",
+        "sender": "me",
+        "text": "Great. Our basic monthly plan starts at $49."
+      },
+      {
+        "timestamp": "2025-07-29T10:06:10Z",
+        "sender": "contact",
+        "text": "Does it include support?"
+      },
+      {
+        "timestamp": "2025-07-29T10:07:15Z",
+        "sender": "me",
+        "text": "Yes, email and chat support are included."
+      },
+      {
+        "timestamp": "2025-07-29T10:08:05Z",
+        "sender": "contact",
+        "text": "Nice. What are the setup steps?"
+      },
+      {
+        "timestamp": "2025-07-29T10:09:00Z",
+        "sender": "me",
+        "text": "You'll receive a welcome email with a link to your dashboard and setup guide."
+      },
+      {
+        "timestamp": "2025-07-29T10:10:30Z",
+        "sender": "contact",
+        "text": "And I can invite my team?"
+      },
+      {
+        "timestamp": "2025-07-29T10:11:15Z",
+        "sender": "me",
+        "text": "Absolutely, each plan supports up to 10 users by default."
+      },
+      {
+        "timestamp": "2025-07-29T10:12:00Z",
+        "sender": "contact",
+        "text": "Is there a trial?"
+      },
+      {
+        "timestamp": "2025-07-29T10:12:45Z",
+        "sender": "me",
+        "text": "Yes, we offer a 7-day free trial, no credit card needed."
+      },
+      {
+        "timestamp": "2025-07-29T10:13:30Z",
+        "sender": "contact",
+        "text": "Sounds great."
+      },
+      {
+        "timestamp": "2025-07-29T10:14:20Z",
+        "sender": "me",
+        "text": "Would you like me to send you a trial link?"
+      },
+      {
+        "timestamp": "2025-07-29T10:15:10Z",
+        "sender": "contact",
+        "text": "Yes, please."
+      },
+      {
+        "timestamp": "2025-07-29T10:15:55Z",
+        "sender": "me",
+        "text": "Here it is: https://example.com/trial"
+      },
+      {
+        "timestamp": "2025-07-29T10:16:45Z",
+        "sender": "contact",
+        "text": "Got it. Will check it out today."
+      },
+      {
+        "timestamp": "2025-07-29T10:17:30Z",
+        "sender": "me",
+        "text": "Let me know if you need any help getting started 🙂"
+      }
+    ]
+  },
+  {
+    "phone": "+58949876543",
+    "messages": [
+      {
+        "timestamp": "2025-07-28T09:20:00Z",
+        "sender": "contact",
+        "text": "Hey, are you free for a quick call later today?"
+      },
+      {
+        "timestamp": "2025-07-28T09:21:00Z",
+        "sender": "me",
+        "text": "Yes, after 3pm works for me."
+      }
+    ]
+  },
+  {
+    "phone": "+58945556666",
+    "messages": [
+      {
+        "timestamp": "2025-07-27T14:00:00Z",
+        "sender": "me",
+        "text": "Hello [first_name], just checking in to see if you received the proposal."
+      },
+      {
+        "timestamp": "2025-07-27T14:05:00Z",
+        "sender": "contact",
+        "text": "Yes, I got it. I'll review and get back to you tomorrow."
+      }
+    ]
+  }
+]

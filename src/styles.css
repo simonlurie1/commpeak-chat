@@ -1,0 +1,42 @@
+:root {
+  --color-primary: #0066ff;
+  --color-text: #1e254f;
+  --color-divider: #cbd5e0;
+  --color-placeholder: #3d466e;
+  --color-bg: #ffffff;
+  --color-active: #e5f1ff;
+  --color-muted: #718096;
+  --color-incoming: #f2f6f9;
+}
+
+html,body {
+  margin: 0;
+  font-family: sans-serif;
+  color: var(--color-text);
+  width: 100%;
+}
+#root {
+  width: 100%;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: var(--color-muted);
+}
+
+.avatar {
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
