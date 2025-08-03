@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useChat } from '../../context/ChatContext.tsx';
 import type { Contact } from '../../types';
-import './contactListStyle.css';
+import './contactList.css';
 
 const ContactList = () => {
   const { contacts, conversations, selectedPhone, selectPhone } = useChat();

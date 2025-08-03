@@ -16,6 +16,8 @@ const ChatContext = createContext<ChatContextType>({} as ChatContextType);
 // eslint-disable-next-line react-refresh/only-export-components
 export const useChat = () => useContext(ChatContext);
 
+const Me = 'me';
+
 export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [conversations, setConversations] = useState<Record<string, Message[]>>({});
   const [selectedPhone, setSelectedPhone] = useState<string | null>(null);
@@ -28,8 +30,8 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         return {
           id: `${entry.phone}-${index}`,
-          from: msg.sender === 'me' ? 'me' : entry.phone,
-          to: msg.sender === 'me' ? entry.phone : 'me',
+          from: msg.sender === Me ? Me : entry.phone,
+          to: msg.sender === Me ? entry.phone : Me,
           content: convertPlaceHolderByPhoneNum(msg.text, entry.phone),
           timestamp: msg.timestamp,
           formattedDate: date.toLocaleDateString(),
@@ -46,7 +48,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const timestamp = new Date();
     const newMsg: Message = {
       id: Math.random().toString(36),
-      from: 'me',
+      from: Me,
       to: phone,
       content: convertPlaceHolderByPhoneNum(content, phone),
       timestamp: timestamp.toISOString(),
