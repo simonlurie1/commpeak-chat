@@ -18,7 +18,7 @@ const MessageInput = () => {
   };
 
   return (
-    <div>
+    <div className="message-input-wrapper">
       <div className="message-input">
         <textarea
           placeholder="write something..."
@@ -26,8 +26,10 @@ const MessageInput = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && send()}
-        ></textarea>
-        <button onClick={send}>Send</button>
+        />
+        <button onClick={send} disabled={text.trim().length === 0}>
+          Send
+        </button>
       </div>
       <Tags onClickTag={onClickTag} />
     </div>

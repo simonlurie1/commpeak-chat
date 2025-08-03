@@ -1,3 +1,9 @@
+.message-input-wrapper {
+    border-radius: 5px;
+    border: 1px solid var(--color-divider);
+    position: relative;
+}
+
 .message-input {
     display: flex;
     gap: 10px;
@@ -7,7 +13,7 @@
 .message-input textarea {
     flex: 1;
     padding: 10px;
-    border: 1px solid var(--color-divider);
+    border: none;
     border-radius: 4px;
     resize: none;
     color: var(--color-placeholder);
@@ -20,8 +26,16 @@
     padding: 10px 16px;
     border-radius: 4px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
 }
 
 .message-input button:hover {
     opacity: 0.8;
+}
+
+.message-input button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useChat } from '../../context/ChatContext.tsx';
 import type { Contact } from '../../types';
 import './contactList.css';
+import Avatar from '../Avatar/Avatar.tsx';
 
 const ContactList = () => {
   const { contacts, conversations, selectedPhone, selectPhone } = useChat();
@@ -32,18 +33,13 @@ const ContactList = () => {
             key={contact.phone}
             onClick={() => selectPhone(contact.phone)}
           >
-            <div
-              className="avatar"
-              id="avatar"
-            >{`${contact?.first_name?.[0] ?? ''}${contact?.last_name?.[0] ?? ''}`}</div>
+            <Avatar contact={contact} />
             <div className="contact">
               <div className="first-line">
                 <div>
                   {contact.first_name} {contact.last_name}
                 </div>
-                <div className="timestamp">
-                  {new Date(last?.timestamp).toTimeString().slice(0, 5)}
-                </div>
+                <div className="timestamp">{last?.formattedTime}</div>
               </div>
               <div className="preview">{last?.content}</div>
             </div>
