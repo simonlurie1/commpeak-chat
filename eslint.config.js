@@ -1,23 +1,37 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import reactPlugin from 'eslint-plugin-react';
+import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 
-export default tseslint.config([
-  globalIgnores(['dist']),
+/** @type {import("eslint").Linter.FlatConfig[]} */
+export default [
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
+    files: ['**/*.tsx', '**/*.ts'],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true }
+      }
     },
+    plugins: {
+      react: reactPlugin,
+      'react-refresh': reactRefreshPlugin
+    },
+    rules: {
+      indent: ['error', 2],
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      'react-refresh/only-export-components': 'off'
+    }
   },
-])
+  {
+    files: ['src/context/ChatContext.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off'
+    }
+  }
+];

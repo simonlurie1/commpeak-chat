@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import type { Contact, Message, RawConversation } from '../types';
 import contacts from '../assets/contacts.json';
-import convoData from '../assets/conversations.json';
-import { convertPlaceHolderByPhoneNum } from '../utils.ts';
+import conversationData from '../assets/conversations.json';
+import { convertPlaceHolderByPhoneNum, normalizeConversations } from '../utils.ts';
 
 interface ChatContextType {
   contacts: Contact[];
@@ -13,7 +13,6 @@ interface ChatContextType {
 }
 
 const ChatContext = createContext<ChatContextType>({} as ChatContextType);
-// eslint-disable-next-line react-refresh/only-export-components
 export const useChat = () => useContext(ChatContext);
 
 const Me = 'me';
@@ -23,23 +22,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [selectedPhone, setSelectedPhone] = useState<string | null>(null);
 
   useEffect(() => {
-    const normalized: Record<string, Message[]> = {};
-    (convoData as RawConversation[]).forEach((entry) => {
-      normalized[entry.phone] = entry.messages.map((msg, index) => {
-        const date = new Date(msg.timestamp);
-
-        return {
-          id: `${entry.phone}-${index}`,
-          from: msg.sender === Me ? Me : entry.phone,
-          to: msg.sender === Me ? entry.phone : Me,
-          content: convertPlaceHolderByPhoneNum(msg.text, entry.phone),
-          timestamp: msg.timestamp,
-          formattedDate: date.toLocaleDateString(),
-          formattedTime: date.toTimeString().slice(0, 5)
-        };
-      });
-    });
-    setConversations(normalized);
+    setConversations(normalizeConversations(conversationData as RawConversation[]));
   }, []);
 
   const selectPhone = (phone: string) => setSelectedPhone(phone);
@@ -47,7 +30,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const sendMessage = (phone: string, content: string) => {
     const timestamp = new Date();
     const newMsg: Message = {
-      id: Math.random().toString(36),
+      id: crypto.randomUUID(),
       from: Me,
       to: phone,
       content: convertPlaceHolderByPhoneNum(content, phone),
@@ -61,11 +44,16 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }));
   };
 
-  return (
-    <ChatContext.Provider
-      value={{ contacts, conversations, selectedPhone, selectPhone, sendMessage }}
-    >
-      {children}
-    </ChatContext.Provider>
+  const contextValue = useMemo(
+    () => ({
+      contacts,
+      conversations,
+      selectedPhone,
+      selectPhone,
+      sendMessage
+    }),
+    [conversations, selectedPhone]
   );
+
+  return <ChatContext.Provider value={contextValue}>{children}</ChatContext.Provider>;
 };
